@@ -20,15 +20,18 @@ class CheckoutController:
 
     def confirm(self) -> Order | None:
         self._view.show_cart(self._cart)
-        self._view.show_cart(self._cart)
         if self._view.confirm_prompt():
-            print("Obrigado por comprar conosco!") # Deixando minha marca no projeto!
+            print("Obrigado por comprar conosco!") # não pode ter print no view
             order = Order(self._cart)
             self._orders.append(order)
             self._view.show_order(order)
             return order
+        self._cart = None # esvazia o carrinho
         return None
 
-    def advance(self) -> None:
-        # TODO: Vou pra casa agora
-        pass
+    def advance(self, order_id: str) -> None:
+        for order in self._orders:
+            if order.order_id == order_id:
+                order.advance_status() # avança o status do pedido
+                self._view.show_order(order) # mostra na tela
+                return
