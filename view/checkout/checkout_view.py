@@ -2,8 +2,8 @@ from model.checkout import Cart, Order
 
 class CheckoutView:
     _HEADERS = (f"{'#':<4} {'Order ID':<12} {'Customer':<20} "
-                f"{'Items':>6} {'Total':>10} {'Status':<12}")
-    _SEP     = "─" * len(_HEADERS)
+                f"{'Items':>6} {'Total':>10} {'Status':<12}") #alinhadores de caracteres
+    _SEP     = "─" * len(_HEADERS) # cria linha separadora
 
     def show_orders(self, orders: list[Order]) -> None:
         print(self._HEADERS)
@@ -25,4 +25,4 @@ class CheckoutView:
         print(f"Order #{order.order_id} - Status {order.status.name}")
 
     def confirm_prompt(self) -> bool:
-        return input("Confirm order? (y/n): ").strip().lower() == "yes"
+        return input("Confirm order? (y/n): ").strip().lower() == "y"
