@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from .product_category import ProductType
-from .pricing import *
+from model.product import ProductType, PricingPolicy
 
 # Objetos de Valor
 @dataclass()

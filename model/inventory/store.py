@@ -1,4 +1,4 @@
-from model.inventory.stock import StockItem
+from model.inventory import StockItem
 
 class Shelf:
     def __init__(self, code: str):

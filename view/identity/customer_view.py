@@ -1,4 +1,4 @@
-from model.identity.customer import Customer
+from model.identity import Customer
 
 class CustomerView:
     def show(self, customer: Customer) -> None:

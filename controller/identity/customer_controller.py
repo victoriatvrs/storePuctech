@@ -1,6 +1,6 @@
 # Note a clareza nos imports!
 
-from view.identity.customer_view import CustomerView
+from view.identity import CustomerView
 from model.identity import Customer, Address, Contact
 
 # Traga a view do consumidor do domínio de identidades

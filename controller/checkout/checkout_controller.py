@@ -1,7 +1,7 @@
 from model.checkout import Order, Cart
 from model.identity import Customer
 from model.product import Product
-from view.checkout.checkout_view import CheckoutView
+from view.checkout import CheckoutView
 
 class CheckoutController:
     def __init__(self, view: CheckoutView):

@@ -1,6 +1,6 @@
 from enum import Enum, auto
 from uuid import uuid4
-from model.checkout.cart import Cart
+from model.checkout import Cart
 
 class OrderStatus(Enum):
     PENDING = 1

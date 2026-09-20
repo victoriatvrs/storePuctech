@@ -1,6 +1,6 @@
-from model.inventory import *
+from model.inventory import StockItem, Shelf, Aisle
 from model.product import Product
-from view.inventory.inventory_view import InventoryView
+from view.inventory import InventoryView
 
 class InventoryController:
     def __init__(self, view: InventoryView):
