@@ -35,8 +35,8 @@ class Order:
         return sum(i.subtotal() for i in self._items)
 
     def advance_status(self) -> None:
-        next_status = self._TRANSITIONS[self._status]
-        self._status = next_status
+        if self._status in self._TRANSITIONS:
+            self._status = self._TRANSITIONS[self._status] # não permite ele avançar mais que o fullfilled
 
     def __str__(self):
         lines = "\n".join(f"  {i}" for i in self._items)
