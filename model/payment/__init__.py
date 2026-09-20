@@ -1,2 +1,3 @@
-from .payment import *
-from .receipt import Receipt
+# como era -> from .payment import *
+from payment.payment import Payment
+from payment.receipt import Receipt

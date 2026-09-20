@@ -1,11 +1,11 @@
-# Note a clareza nos imports! 
+# Note a clareza nos imports!
+
+from view.identity.customer_view import CustomerView
+from model.identity import Customer, Address, Contact
 
 # Traga a view do consumidor do domínio de identidades
 # Você também pode criar um init em view/identity para importar a classe de view.identity
-from view.identity.customer_view import CustomerView 
 # Traga o modelo do consumidor, endereço e contato do domínio de identidades
-from model.identity import Customer, Address, Contact
-
 
 class CustomerController:
     def __init__(self, view: CustomerView):

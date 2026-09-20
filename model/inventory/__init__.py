@@ -1,2 +1,2 @@
-from stock import StockItem
-from .store import Aisle, Shelf
+from inventory.stock import StockItem
+from inventory.store import Aisle, Shelf
