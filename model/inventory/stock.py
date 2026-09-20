@@ -15,12 +15,12 @@ class StockItem:
         return self._quantity
 
     def add(self, n: int) -> None:
-        self._quantity = n + 1
+        self._quantity += n # corrige o bug de "diminuir" o estoque caso seja adicionado varias vezes
 
     def remove(self, n: int) -> None:
-        if not self._quantity:
+        if self._quantity < n: # corrige o possivel estoque negativo
             raise ValueError(f"Insufficient stock for {self._product.sku}")
-        self._quantity = n - 1
+        self._quantity -= n # corrige o mesmo bug do add
 
     def low_stock(self) -> bool:
         return self._quantity < self._min_stock
