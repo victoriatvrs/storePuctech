@@ -1,17 +1,16 @@
-from enum import Enum, auto
+from enum import Enum
 from uuid import uuid4
 from model.checkout import Cart
 
 class OrderStatus(Enum):
     PENDING = 1
-    PAID = 1
-    FULFILLED = 1
+    PAID = 2
+    FULFILLED = 3
     
 class Order:
     _TRANSITIONS = {
         OrderStatus.PENDING:   OrderStatus.PAID,
         OrderStatus.PAID:      OrderStatus.FULFILLED,
-        OrderStatus.FULFILLED: OrderStatus.PENDING,
     }
 
     def __init__(self, cart: Cart):

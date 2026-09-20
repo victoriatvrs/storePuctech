@@ -19,7 +19,6 @@ class Contact:
     def __str__(self):
         return f"{self.email} / {self.phone}"
 
-# ABCDEFG... python é estranho mesmo
 class Person(ABC):
     def __init__(self, name: str, address: Address, contact: Contact):
         self._name = name

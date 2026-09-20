@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from model.product import ProductType, PricingPolicy
+from model.product import ProductType, PricingPolicy, Normal
 
 # Objetos de Valor
 @dataclass()
@@ -7,23 +7,22 @@ class SKU:
     code: str
     
     def __str__(self):
-        return self.code
+        return self.code # vai exibir apenas o numero de id
 
 @dataclass()
 class Price:
     amount: float
     
     def __str__(self):
-        return f"R$ {self.amount:.2f}"
-    
+        return f"R$ {self.amount:.2f}" # moeda + 2 classes decimais
 
 class Product:
-    def __init__(self, sku: SKU, name: str, price: Price, category: ProductType, policy: PricingPolicy = None):
+    def __init__(self, sku: SKU, name: str, price: Price, category: ProductType, policy: PricingPolicy = None): # pricing policy opcional, então recebe NONE
         self._sku = sku
         self._name = name
         self._price = price
         self._category = category
-        self._policy = policy
+        self._policy = policy if policy is not None else Normal() # pra checar se vai ter desconto e, caso não tenha, considera o normal
 
     # Getters
     @property
@@ -53,7 +52,7 @@ class Product:
 
     # Métodos
     def final_price(self) -> float:
-        return self._price.amount + self._policy.factor()
+        return self._price.amount * self._policy.factor()
 
     def __repr__(self):
         return (f"Product(sku={self._sku!r}, name={self._name!r}, "

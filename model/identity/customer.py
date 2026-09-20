@@ -10,12 +10,10 @@ class Customer(Person):
     def customer_id(self):
         return self._customer_id
 
-    # Vou apresentar essa ideia pro Rodrigo amanhã
     def add_points(self, n: int) -> None:
         self._loyalty_points += n
     
     def __repr__(self):
-        # o que será que esse !r faz aqui?
         return (f"Customer(id={self._customer_id!r}, "
                 f"name={self._name!r}, "
                 f"address={self._address!r}, "

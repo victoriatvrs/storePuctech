@@ -15,7 +15,7 @@ class LineItem:
         return self._quantity
 
     def subtotal(self) -> float:
-        return self._product.price * self._quantity
+        return self._product.final_price() * self._quantity # multiplica o preço pela quantidade pra geral o subtotal
 
     def __str__(self):
         return f"{self._product.name} x {self._quantity} = R$ {self._product.final_price():.2f}"
@@ -37,10 +37,10 @@ class Cart:
         return list(self._items)
 
     def add(self, product: Product, qty: int) -> None:
-        for item in self._items:
+        for i, item in self._items:
             if item.product.sku == product.sku:
-                novaqty = item.qty + qty # soma a quantidade anterior de itens no carrinho com a nova
-                self._items.append(LineItem(product, novaqty)) # adiciona o item caso ele era duplicado
+                novaqty = item.quantity + qty # soma a quantidade anterior de itens no carrinho com a nova
+                self._items[i] = LineItem(product, novaqty)
                 return # quebra o loop
         self._items.append(LineItem(product, qty)) # adiciona novo se o loop falhar
 
